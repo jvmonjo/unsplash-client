@@ -1,6 +1,15 @@
 <div class="container">
-    <h1>Images</h1>
-    <ul class="list-group">
+    <div class="md-form mt-0">
+        <input #imageSearchInput [(ngModel)]="query" class="form-control" type="text" placeholder="Put a keyword to search images" aria-label="Search">
+    </div>
+
+    <div *ngIf="isLoading" style="text-align: center; margin-top: 2em;">
+        <div class="spinner-border text-primary" role="status">
+            <!-- <span class="sr-only">Loading...</span> -->
+        </div>
+    </div>
+    
+    <ul *ngIf="!isLoading && images.length > 0" class="list-group">
         <li class="no-style" *ngFor="let image of images" >
             <a [routerLink]="['/image', image.id]" class="list-group-item list-group-item-action animate__animated animate__bounce animate__fadeIn">
                 {{image.id}} - {{image.description}}

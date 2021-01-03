@@ -10,7 +10,6 @@ import { map, mergeMap } from 'rxjs/operators';
 export class ImagesService {
 
   api_url: string = 'https://api.unsplash.com'
-  query = 'mars'
   headers = {
     Authorization: 'Client-ID 3Tru75ntRO1zneWdUtRPEAz1o1FepMggoxAhOLadTGY'
   }
@@ -21,8 +20,11 @@ export class ImagesService {
 
   constructor(private http: HttpClient) { }
 
-  getAllImages(): Observable<Image[]> {
-    return this.http.get<{results: Image[]}>(`${this.api_url}/search/photos?query=${this.query}`, this.options)
+  getImagesByKeyWord(keyWord: string): Observable<Image[]> {
+    if (keyWord === '') {
+      return of([]);
+    }
+    return this.http.get<{results: Image[]}>(`${this.api_url}/search/photos?query=${keyWord}`, this.options)
       .pipe(
         map((response) => response.results || []),
         mergeMap((photos: Image[]) => of(photos.map((photo: any) => new Image(photo.id, photo.description, photo.user.name, photo.user.links.self, photo.created_at, photo.urls, photo.color, photo.blur_hash))))
