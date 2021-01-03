@@ -20,13 +20,12 @@ export class ImagesComponent implements OnInit {
   images: Image[] = [];
 
   @ViewChild('imageSearchInput', { static: true }) imageSearchInput: ElementRef;
-  public isLoading: boolean = false;
+  public isLoading: boolean = false
   public query: string = 'cats'
 
   constructor(private imagesService: ImagesService) { }
 
   ngOnInit(): void {
-    console.log(this.imageSearchInput);
     this.getImages()
     this.bindTyping()
   }

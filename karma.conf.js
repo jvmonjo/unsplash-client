@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/mars-photos'),
+      dir: require('path').join(__dirname, './coverage/unsplash-client'),
       subdir: '.',
       reporters: [
         { type: 'html' },

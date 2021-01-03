@@ -1,13 +1,14 @@
 <div class="container mt-5">
     <div *ngIf="image" class="row animate__animated animate__bounce animate__fadein">
         <div class="col-md-9">
+            <img src="{{image.urls.small}}" alt="">
             <ul>
-                <li>Id: {{image.id}}</li>
-                <li>Date: {{image.created_at}} </li>
-                <li>Author: <a [href]="image.author_link" target="_blank" rel="noopener noreferrer">{{image.author}}</a></li>
-                <li *ngIf="image.description">Description: {{image.description}}</li>
-                <li>Url: <a [href]="image.urls.full" target="_blank" rel="noopener noreferrer">{{image.urls.full}}</a></li>
-                <img src="{{image.urls.small}}" alt="">
+                <li><strong>ID: </strong>{{image.id}}</li>
+                <li><strong>Date: </strong>{{image.created_at | date: 'dd/MM/yyyy'}} </li>
+                <li><strong>Author: </strong><a [href]="image.author_link" target="_blank" rel="noopener noreferrer">{{image.author}}</a></li>
+                <li *ngIf="image.description"><strong>Description: </strong>{{image.description}}</li>
+                <li><strong>Url: </strong><a [href]="image.urls.full" target="_blank" rel="noopener noreferrer">{{image.urls.full}}</a></li>
+                
             </ul>
         </div>
 

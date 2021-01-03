@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "mars-photos": {
+    "unsplash-client": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/mars-photos",
+            "outputPath": "dist/unsplash-client",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -21,7 +21,8 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles.css"
@@ -54,25 +55,27 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "ngsw-config.json"
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "mars-photos:build"
+            "browserTarget": "unsplash-client:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "mars-photos:build:production"
+              "browserTarget": "unsplash-client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "mars-photos:build"
+            "browserTarget": "unsplash-client:build"
           }
         },
         "test": {
@@ -84,7 +87,8 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles.css"
@@ -109,16 +113,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "mars-photos:serve"
+            "devServerTarget": "unsplash-client:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "mars-photos:serve:production"
+              "devServerTarget": "unsplash-client:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "mars-photos"
+  "defaultProject": "unsplash-client"
 }

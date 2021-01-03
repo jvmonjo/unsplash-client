@@ -20,7 +20,7 @@ export class ImageComponent implements OnInit {
 
   ngOnInit(): void {
     const identifier = this.activatedRoute.snapshot.paramMap.get('id')
-    console.log('identifier', identifier)
+    // console.log('identifier', identifier)
 
     this.imagesService.getImageById(identifier).subscribe(image => {
       if (!image) {
@@ -29,7 +29,7 @@ export class ImageComponent implements OnInit {
 
       this.image = image
 
-      console.log('image', this.image)
+      // console.log('image', this.image)
     })
   }
 
