@@ -8,12 +8,22 @@
             <!-- <span class="sr-only">Loading...</span> -->
         </div>
     </div>
+
+    <div class="container my-4">
+        <div *ngIf="!isLoading && images.length > 0" class="row">
+                <div class="no-style col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-4" *ngFor="let image of images" >
+                    <a [routerLink]="['/image', image.id]" class="animate__animated animate__bounce animate__fadeIn">
+                        <div class="image-wrapper">
+                            <img src="{{image.urls.thumb}}" alt="{{image.id}}">
+                        </div>
+                        
+                    </a>
+                </div>
+        </div>
+
+
     
-    <ul *ngIf="!isLoading && images.length > 0" class="list-group">
-        <li class="no-style" *ngFor="let image of images" >
-            <a [routerLink]="['/image', image.id]" class="list-group-item list-group-item-action animate__animated animate__bounce animate__fadeIn">
-                {{image.id}} - {{image.description}}
-            </a>
-        </li>
-    </ul>
+      </div>
+    
+    
 </div>

@@ -27,14 +27,14 @@ export class ImagesService {
     return this.http.get<{results: Image[]}>(`${this.api_url}/search/photos?query=${keyWord}`, this.options)
       .pipe(
         map((response) => response.results || []),
-        mergeMap((photos: Image[]) => of(photos.map((photo: any) => new Image(photo.id, photo.description, photo.user.name, photo.user.links.self, photo.created_at, photo.urls, photo.color, photo.blur_hash))))
+        mergeMap((photos: Image[]) => of(photos.map((photo: any) => new Image(photo.id, photo.description, photo.user.name, photo.user.links.html, photo.created_at, photo.urls, photo.color, photo.blur_hash))))
       )
   }
 
   getImageById(id: string): Observable<Image> {
     return this.http.get<Image>(`${this.api_url}/photos/${id}`, this.options)
     .pipe(
-      mergeMap((photo: any) => of(new Image(photo.id, photo.description, photo.user.name, photo.user.links.self, photo.created_at, photo.urls, photo.color, photo.blur_hash)))
+      mergeMap((photo: any) => of(new Image(photo.id, photo.description, photo.user.name, photo.user.links.html, photo.created_at, photo.urls, photo.color, photo.blur_hash)))
     )
   }
 }
