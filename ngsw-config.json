@@ -12,6 +12,9 @@
           "/manifest.webmanifest",
           "/*.css",
           "/*.js"
+        ],
+        "urls": [
+          "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
         ]
       }
     },
@@ -24,6 +27,20 @@
           "/assets/**",
           "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
         ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "images-api",
+      "urls": [
+        "https://api.unsplash.com/**"
+      ],
+      "cacheConfig": {
+        "maxSize": 10,
+        "maxAge": "1h",
+        "timeout": "1s",
+        "strategy": "freshness"
       }
     }
   ]
