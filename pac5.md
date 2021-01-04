@@ -110,3 +110,11 @@ I després podem arrancar un servidor de ssr de desenvolupament amb:
 `npm run dev:ssr`
 
 # Desplegament a github pages
+
+Generem el build amb:
+
+`ng build --prod --output-path docs --base-href /unsplash-client/`
+
+A continuació reanomenem `docs/index.html` a `docs/404.html` i configurem el repo per a que mostre la app per la següent url:
+
+<https://unsplash-client.github.io>
