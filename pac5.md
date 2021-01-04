@@ -14,9 +14,13 @@ header-includes: |
     \rhead{PAC5}
     \lhead{Josep V. Monjo}
     \cfoot{\thepage}
+    \usepackage{setspace}
+    \doublespacing
 ---
 
-# Selecció de la API
+# Implementar una PWA
+
+## Selecció de la API
 
 He triat la api de unsplash. M'he generat una api key i l'he adjuntat al les cridades al servidor mitjançant el `header` des del client. No és allò ideal ja que la clau queda exposada en el codi font del client. La clau deuria d'estar a un servidor (per exemple amb node) i fer les cridades mitjançant aquell servidor intermediari, però crec que excedeix la finalitat de la pràctica.
 
@@ -43,7 +47,7 @@ getImagesByKeyWord(keyWord: string): Observable<Image[]> {
 
 Una de les propietats que he triat és la `hash_url`, ja que em sembla una opció molt interessant per fer un `placeholder` amb una representació de baixa resolució de la imatge mentre aquesta es descarrega. No obstant no he implementat aquesta `feature` per falta de temps.
 
-# PWA
+## PWA
 
 He afegit les capacitats de pwa amb `ng add @angular/pwa`.
 
@@ -72,7 +76,7 @@ Al fitxer de configuració generat `ngsw-config.json` he afegit la url de bootst
 
 Per a generar les icones de la app he usat la llibreria `ngx-pwa-icons`, d'eixa manera automatitzem la generació de totes les mides a partir d'un sol fitxer.
 
-# Lighthouse
+## Lighthouse
 
 Aquestes són les puntuacions obtingudes per a `desktop`:
 
