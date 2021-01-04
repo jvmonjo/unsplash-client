@@ -115,6 +115,6 @@ Generem el build amb:
 
 `ng build --prod --output-path docs --base-href /unsplash-client/`
 
-A continuació reanomenem `docs/index.html` a `docs/404.html` i configurem el repo per a que mostre la app per la següent url:
+A continuació creem el fitxer `docs/404.html` amb els mateixos continguts que `docs/index.html` i configurem el repo en github.com per a que mostre la app per la següent url:
 
 <https://unsplash-client.github.io>
