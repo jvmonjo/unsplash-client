@@ -1,7 +1,7 @@
 <div class="container mt-5">
     <div *ngIf="image" class="row animate__animated animate__bounce animate__fadein">
         <div class="col-md-9">
-            <img src="{{image.urls.small}}" alt="">
+            <img class="image" src="{{image.urls.small}}" alt="" width="400" height="auto">
             <ul>
                 <li><strong>ID: </strong>{{image.id}}</li>
                 <li><strong>Date: </strong>{{image.created_at | date: 'dd/MM/yyyy'}} </li>

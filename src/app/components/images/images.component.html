@@ -14,7 +14,7 @@
                 <div class="no-style col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-4" *ngFor="let image of images" >
                     <a [routerLink]="['/image', image.id]" class="animate__animated animate__bounce animate__fadeIn">
                         <div class="image-wrapper">
-                            <img src="{{image.urls.thumb}}" alt="{{image.id}}">
+                            <img src="{{image.urls.thumb}}" alt="{{image.id}}" width="200" height="auto">
                         </div>
                         
                     </a>

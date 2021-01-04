@@ -21,7 +21,7 @@ export class ImagesComponent implements OnInit {
 
   @ViewChild('imageSearchInput', { static: true }) imageSearchInput: ElementRef;
   public isLoading: boolean = false
-  public query: string = 'cats'
+  public query: string = localStorage.getItem('imageQuery') || 'cats'
 
   constructor(private imagesService: ImagesService) { }
 
@@ -62,7 +62,10 @@ export class ImagesComponent implements OnInit {
       // subscription for response
     ).subscribe((text: string) => {
       this.isLoading = true;
-      this.query = text
+      // this.query = text
+
+      // Persist query on localStorage
+      localStorage.setItem('imageQuery', text) 
       this.getImages()
     })
   }

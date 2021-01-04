@@ -1,6 +1,6 @@
 {
-  "name": "unsplash-client",
-  "short_name": "unsplash-client",
+  "name": "Unsplash client",
+  "short_name": "Unsplash",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
