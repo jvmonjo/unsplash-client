@@ -29,10 +29,14 @@ getImagesByKeyWord(keyWord: string): Observable<Image[]> {
   if (keyWord === '') {
     return of([]);
   }
-  return this.http.get<{results: Image[]}>(`${this.api_url}/search/photos?query=${keyWord}`, this.options)
+  return this.http.get<{results: Image[]}>
+  (`${this.api_url}/search/photos?query=${keyWord}`, this.options)
     .pipe(
       map((response) => response.results || []),
-      mergeMap((photos: Image[]) => of(photos.map((photo: any) => new Image(photo.id, photo.description, photo.user.name, photo.user.links.html, photo.created_at, photo.urls, photo.color, photo.blur_hash))))
+      mergeMap((photos: Image[]) => of(photos.map((photo: any) => 
+         new Image(photo.id, photo.description, photo.user.name, 
+         photo.user.links.html, photo.created_at, photo.urls, 
+         photo.color, photo.blur_hash))))
     )
 }
 ```
@@ -86,4 +90,23 @@ Per fer la nostra app compatible amb SSR afegim:
 
 `ng add @nguniversal/express-engine`
 
+En la nostra app això ens ha creat una sèrie de fitxers:
 
+|Fitxer                    | Descripció|
+|---                       | --- |
+|src/                      |      |
+|--main.ts                 |    bootstrapper for client app |
+|--main.server.ts          |   * bootstrapper for server app |
+|--app/ ...                |   application code |
+|----app.server.module.ts  |   * server-side application module |
+|server.ts                 |   * express web server |
+|tsconfig.json             |   TypeScript base configuration |
+|tsconfig.app.json         |   TypeScript browser application configuration |
+|tsconfig.server.json      |   TypeScript server application configuration |
+|tsconfig.spec.json        |   TypeScript tests configuration |
+
+I després podem arrancar un servidor de ssr de desenvolupament amb:
+
+`npm run dev:ssr`
+
+# Desplegament a github pages
