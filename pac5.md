@@ -117,4 +117,4 @@ Generem el build amb:
 
 A continuació creem el fitxer `docs/404.html` amb els mateixos continguts que `docs/index.html` i configurem el repo en github.com per a que mostre la app per la següent url:
 
-<https://unsplash-client.github.io>
+<https://jvmonjo.github.io/unsplash-client/>
