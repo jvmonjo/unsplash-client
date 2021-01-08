@@ -22,7 +22,7 @@ header-includes: |
 
 ## Selecció de la API
 
-He triat la api de unsplash. M'he generat una api key i l'he adjuntat al les cridades al servidor mitjançant el `header` des del client. No és allò ideal ja que la clau queda exposada en el codi font del client. La clau deuria d'estar a un servidor (per exemple amb node) i fer les cridades mitjançant aquell servidor intermediari, però crec que excedeix la finalitat de la pràctica.
+He triat la api de unsplash. M'he generat una api key i l'he adjuntat a les cridades al servidor mitjançant el `header` des del client. No és allò ideal ja que la clau queda exposada en el codi font del client. La clau deuria d'estar a un servidor (per exemple amb node) i fer les cridades mitjançant aquell servidor intermediari, però crec que excedeix la finalitat de la pràctica.
 
 He implementat una barra de cerca que refresca la cridada a la api al teclejar una nova paraula. He persistit la paraula a localStorage per a que no es perda al canviar de ruta.
 
